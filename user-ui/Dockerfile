@@ -1,10 +1,9 @@
 FROM node:17.9.0-slim
-LABEL maintainer="DeekshithSN"
-RUN useradd userui
 WORKDIR /app
-RUN chown userui /app /home
+RUN chown userui /app/home
+RUN useradd userui
 COPY . .
-RUN npm install 
-EXPOSE 3000
+RUN npm install
 USER userui
-CMD ["npm","start"]
+EXPOSE 3000
+CMD [ "npm", "start" ]
